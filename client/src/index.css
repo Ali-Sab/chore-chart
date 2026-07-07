@@ -1,0 +1,60 @@
+:root {
+  --bg: #f7f6f3;
+  --surface: #ffffff;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-med: rgba(0, 0, 0, 0.14);
+  --text: #1a1a18;
+  --text-muted: #888780;
+  --text-faint: #b4b2a9;
+  --today-ring: #7f77dd;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --font: 'DM Sans', sans-serif;
+  --mono: 'DM Mono', monospace;
+
+  /* Positional person color slots — assigned by sorted index within a group */
+  --person-0:      #7f77dd; --person-0-bg: #eeedfe; --person-0-text: #3c3489;
+  --person-1:      #1d9e75; --person-1-bg: #e1f5ee; --person-1-text: #085041;
+  --person-2:      #c46b1a; --person-2-bg: #fef0e6; --person-2-text: #7a3510;
+  --person-3:      #9b6de0; --person-3-bg: #f3ecfe; --person-3-text: #4a1d96;
+}
+
+[data-theme="dark"] {
+  --bg: #1c1b19;
+  --surface: #252422;
+  --border: rgba(255, 255, 255, 0.07);
+  --border-med: rgba(255, 255, 255, 0.13);
+  --text: #edeae4;
+  --text-muted: #888580;
+  --text-faint: #555350;
+  --today-ring: #a09aee;
+
+  --person-0:      #a09aee; --person-0-bg: #26244a; --person-0-text: #c8c3ff;
+  --person-1:      #27b882; --person-1-bg: #0e2b22; --person-1-text: #72dbb4;
+  --person-2:      #e09060; --person-2-bg: #2e1a0a; --person-2-text: #f0c49a;
+  --person-3:      #b89cf0; --person-3-bg: #231b38; --person-3-text: #d8c8ff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 2rem 1.5rem 4rem;
+}
+
+@media (max-width: 640px) {
+  body { padding: 1.25rem 0.75rem 3rem; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: none; }
+}

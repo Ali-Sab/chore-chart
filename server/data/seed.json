@@ -1,0 +1,26 @@
+{
+  "groups": [
+    {
+      "name": "home",
+      "members": ["alison", "kevina"],
+      "chores": [
+        { "name": "Kitchen Trash",                   "assigned_to": "alison", "cadence_weeks": 0.5 },
+        { "name": "Dining Room – Wiping",            "assigned_to": "alison", "cadence_weeks": 1   },
+        { "name": "Kitchen – Vacuum",                "assigned_to": "alison", "cadence_weeks": 2   },
+        { "name": "Bathroom – Floor",                "assigned_to": "alison", "cadence_weeks": 4   },
+        { "name": "Bedroom – Vacuum",                "assigned_to": "alison", "cadence_weeks": 4   },
+        { "name": "Living Room + Dining – Vacuum",   "assigned_to": "alison", "cadence_weeks": 4   },
+        { "name": "Tub",                             "assigned_to": "alison", "cadence_weeks": 4   },
+        { "name": "Bathroom Trash",                  "assigned_to": "kevina", "cadence_weeks": 1   },
+        { "name": "Living Room – Vacuum Couch",      "assigned_to": "kevina", "cadence_weeks": 1   },
+        { "name": "Bathroom Vanity",                 "assigned_to": "kevina", "cadence_weeks": 2   },
+        { "name": "Kitchen – Wiping Counters/Stove", "assigned_to": "kevina", "cadence_weeks": 2   },
+        { "name": "Toilets",                         "assigned_to": "kevina", "cadence_weeks": 3   },
+        { "name": "Bedroom – Wiping",                "assigned_to": "kevina", "cadence_weeks": 4   },
+        { "name": "Hallway – Vacuum",                "assigned_to": "kevina", "cadence_weeks": 4   },
+        { "name": "Kitchen – Sinks",                 "assigned_to": "kevina", "cadence_weeks": 4   },
+        { "name": "Living Room – Wiping",            "assigned_to": "kevina", "cadence_weeks": 4   }
+      ]
+    }
+  ]
+}

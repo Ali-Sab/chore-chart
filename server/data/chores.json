@@ -1,0 +1,18 @@
+[
+  { "name": "Kitchen Trash",                   "person": "Alison",  "cadence_weeks": 0.5 },
+  { "name": "Dining Room – Wiping",            "person": "Alison",  "cadence_weeks": 1   },
+  { "name": "Kitchen – Vacuum",                "person": "Alison",  "cadence_weeks": 2   },
+  { "name": "Bathroom – Floor",                "person": "Alison",  "cadence_weeks": 4   },
+  { "name": "Bedroom – Vacuum",                "person": "Alison",  "cadence_weeks": 4   },
+  { "name": "Living Room + Dining – Vacuum",   "person": "Alison",  "cadence_weeks": 4   },
+  { "name": "Tub",                             "person": "Alison",  "cadence_weeks": 4   },
+  { "name": "Bathroom Trash",                  "person": "Kevina",  "cadence_weeks": 1   },
+  { "name": "Living Room – Vacuum Couch",      "person": "Kevina",  "cadence_weeks": 1   },
+  { "name": "Bathroom Vanity",                 "person": "Kevina",  "cadence_weeks": 2   },
+  { "name": "Kitchen – Wiping Counters/Stove", "person": "Kevina",  "cadence_weeks": 2   },
+  { "name": "Toilets",                         "person": "Kevina",  "cadence_weeks": 3   },
+  { "name": "Bedroom – Wiping",                "person": "Kevina",  "cadence_weeks": 4   },
+  { "name": "Hallway – Vacuum",                "person": "Kevina",  "cadence_weeks": 4   },
+  { "name": "Kitchen – Sinks",                 "person": "Kevina",  "cadence_weeks": 4   },
+  { "name": "Living Room – Wiping",            "person": "Kevina",  "cadence_weeks": 4   }
+]
