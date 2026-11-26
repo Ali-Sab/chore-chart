@@ -144,8 +144,8 @@ func randomState() string {
 
 // ─── Discovery ────────────────────────────────────────────────────────────────
 
-func fetchEndSessionEndpoint(ctx context.Context, accountManagerURL, redirectURI string) string {
-	base := strings.TrimRight(accountManagerURL, "/")
+func fetchEndSessionEndpoint(ctx context.Context, discoveryBase, publicBase, redirectURI string) string {
+	base := strings.TrimRight(discoveryBase, "/")
 
 	publicOrigin := ""
 	if pub, err := url.Parse(redirectURI); err == nil && pub.Scheme != "" && pub.Host != "" {
@@ -153,7 +153,7 @@ func fetchEndSessionEndpoint(ctx context.Context, accountManagerURL, redirectURI
 	}
 	fallback := publicOrigin + "/logout"
 	if publicOrigin == "" {
-		fallback = base + "/logout"
+		fallback = strings.TrimRight(publicBase, "/") + "/logout"
 	}
 
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, base+"/.well-known/oauth-authorization-server", nil)
@@ -684,18 +684,21 @@ func main() {
 	ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
 	defer stop()
 
-	base := strings.TrimRight(accountManagerURL, "/")
-	jwksURL := base + "/.well-known/jwks.json"
-	keys, err := auth.NewJWKSKeyProvider(ctx, jwksURL)
+	ep, err := resolveAccountManagerEndpoints(accountManagerURL, os.Getenv("ACCOUNT_MANAGER_INTERNAL_URL"))
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Printf("account-manager: public %s, server-side %s", ep.publicBase, ep.internalBase)
+	keys, err := auth.NewJWKSKeyProvider(ctx, ep.jwksURL)
 	if err != nil {
 		log.Fatal("fetching JWKS:", err)
 	}
-	endSessionURL := fetchEndSessionEndpoint(ctx, accountManagerURL, redirectURI)
+	endSessionURL := fetchEndSessionEndpoint(ctx, ep.internalBase, ep.publicBase, redirectURI)
 	log.Printf("end_session_endpoint: %s", endSessionURL)
 
 	cfg := serverConfig{
-		authorizeURL:  base + "/authorize",
-		tokenURL:      base + "/token",
+		authorizeURL:  ep.authorizeURL,
+		tokenURL:      ep.tokenURL,
 		endSessionURL: endSessionURL,
 		clientID:      clientID,
 		clientSecret:  clientSecret,

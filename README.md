@@ -71,11 +71,14 @@ The server fetches its RS256 public key from the JWKS endpoint at startup and re
 
 | Variable | Description |
 |---|---|
-| `ACCOUNT_MANAGER_URL` | Base URL of the OAuth/account-manager service |
+| `ACCOUNT_MANAGER_URL` | Public base URL of account-manager (the `/authorize` redirect and logout fallback) |
+| `ACCOUNT_MANAGER_INTERNAL_URL` | Server-side base for JWKS, `/token` and discovery (default: `ACCOUNT_MANAGER_URL`) |
 | `OAUTH_CLIENT_ID` | OAuth client ID |
 | `OAUTH_CLIENT_SECRET` | OAuth client secret |
 | `OAUTH_REDIRECT_URI` | Redirect URI registered with the OAuth server |
 | `PORT` | Port to listen on (default: `8080`) |
+
+In Docker, set `ACCOUNT_MANAGER_INTERNAL_URL=http://account-manager:3001`. The public URL is refused from inside Docker on the Pi.
 
 ---
 
